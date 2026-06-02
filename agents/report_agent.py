@@ -12,27 +12,32 @@ def report_agent(state: dict):
     )
 
     report = f"""
-DATA QUALITY REPORT
+    DATA QUALITY REPORT
 
-Total Records: {total_rows}
+    Total Records: {total_rows}
 
-Errors Found: {errors}
+    Errors Found: {errors}
 
-Quality Score: {quality_score}%
+    Quality Score: {quality_score}%
 
-Average Salary:
-{transform['average_salary']}
+    Average Salary:
+    {transform['average_salary']}
 
-Department Counts:
-{transform['department_counts']}
+    Department Counts:
+    {transform['department_counts']}
 
-Recommendations:
-- Fix invalid ages
-- Fix invalid emails
-- Fill missing salaries
-"""
+    Recommendations:
+    - Fix invalid ages
+    - Fix invalid emails
+    - Fill missing salaries
+    """
+    trace = state["execution_trace"]
 
     return {
         **state,
+        "execution_trace": [
+            *trace,
+            "report_agent",
+        ],
         "report": report,
     }

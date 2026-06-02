@@ -9,7 +9,13 @@ def clean_agent(state: dict):
     # replace empty strings
     df = df.fillna("UNKNOWN")
 
+    trace = state["execution_trace"]
+
     return {
         **state,
+        "execution_trace": [
+            *trace,
+            "clean_agent",
+        ],
         "cleaned_data": df,
     }

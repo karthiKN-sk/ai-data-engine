@@ -40,8 +40,14 @@ def transform_agent(state: dict):
             salary_by_department,
     }
 
+    trace = state["execution_trace"]
+
     return {
         **state,
+        "execution_trace": [
+            *trace,
+            "transform_agent",
+        ],
         "transformation_report":
             transformation_report,
     }
