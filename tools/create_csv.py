@@ -1,0 +1,17 @@
+csv_data = """name,age,salary,department,email
+John,25,50000,Engineering,john@company.com
+John,25,50000,Engineering,john@company.com
+Alice,,70000,Finance,alice@company.com
+Bob,abc,90000,Engineering,bob@company.com
+Charlie,35,,HR,charlie@company.com
+David,-5,45000,Sales,david@company.com
+Eva,28,65000,Marketing,evacompany.com
+Frank,40,120000,Engineering,frank@company.com
+Grace,29,75000,Finance,grace@company.com
+Henry,31,85000,Sales,henry@company.com
+"""
+
+with open("employees.csv", "w", encoding="utf-8") as file:
+    file.write(csv_data)
+
+print("employees.csv created successfully")

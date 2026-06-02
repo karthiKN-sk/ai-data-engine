@@ -1,0 +1,5 @@
+langgraph
+pandas
+streamlit
+boto3
+langchain-core
