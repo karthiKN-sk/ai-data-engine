@@ -69,7 +69,13 @@ def validate_agent(state: dict):
         "error_count": len(errors)
     }
 
+    trace = state["execution_trace"]
+
     return {
         **state,
+        "execution_trace": [
+            *trace,
+            "validate_agent",
+        ],
         "validation_report": report
     }
